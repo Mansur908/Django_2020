@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <link rel="stylesheet" href="{% static 'css/stylesheet.css'%}" type="text/css">
+
+</head>
+<body bgcolor="darkkhaki">
+<a href="http://localhost:8000/users/signin">
+    <button type="button" class="b_login">sign in</button>
+</a>
+<a href="http://localhost:8000/users/profile">
+    <button type="button" class="b">profile</button>
+</a>
+<a href="http://localhost:8000/users/message">
+    <button type="button" class="b_chat">chat</button>
+</a>
+<div class="back">
+    <div class="buttons_div">
+        <a href="http://localhost:8000/users/airtickets">
+            <button type="button" class="b1"><h2>air tickets</h2></button>
+        </a>
+        <a href="http://localhost:8000/users/hotels">
+            <button type="button" class="b2"><h2>hotels</h2></button>
+        </a>
+        <a href="http://localhost:8000/users/restaurants">
+            <button type="button" class="b3"><h2>restaurants</h2></button>
+        </a>
+        <a href="http://localhost:8000/users/cars">
+            <button type="button" class="b4"><h2>car rental</h2></button>
+        </a>
+        <a href="http://localhost:8000/users/attractions">
+            <button type="button" class="b5"><h2>attractions</h2></button>
+        </a>
+        <a href="http://localhost:8000/users/news">
+            <button type="button" class="b6"><h2>news</h2></button>
+        </a>
+    </div>
+</div>
+</body>
+</html>

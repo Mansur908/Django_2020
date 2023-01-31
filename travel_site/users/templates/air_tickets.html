@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Air Tickets
+{% endblock %}
+
+{% block main %}
+    {% for i in tickets %}
+        <div class="newsmain">
+            <div class="aircompany"><h2>{{ i.air_company}}</h2></div>
+            <div class="airdep"><h3>from: {{ i.departure_place }}</h3></div>
+            <div class="airarr"> <h3>to:{{ i.arrival_place }}</h3></div>
+            <div class="aircompany"> <h4>{{ i.date }}</h4></div>
+            <div class="aircompany"> <h2>{{ i.price }} руб</h2></div>
+        </div>
+    {% endfor %}
+{% endblock %}

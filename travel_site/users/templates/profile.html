@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/stylesheet.css'%}" type="text/css">
+</head>
+<body bgcolor="darkkhaki">
+<a href="http://localhost:8000/users/main">
+    <button type="button" class="loginPage">main</button>
+</a>
+<a href="http://localhost:8000/users/exit">
+    <button type="button" class="exit">exit</button>
+</a>
+<div class="back">
+
+    <div class="prof">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="image_box">
+            {% if image %}
+                <img class="image" height="200px" width="200px" src="{{ image }}">
+            {% else %}
+                <div class="example-1">
+                  <div class="form-group">
+                    <label class="label">
+                      <i class="material-icons">attach</i>
+                      <span class="title">Добавить фото</span>
+                        {{ form.picture }}
+                    </label>
+                  </div>
+                </div>
+                <input class="image_button" type="submit" value="ENTER"/>
+                {% endif %}
+            </div>
+
+        </form>
+        <h2 class="prof_head">{{ message }}</h2>
+    </div>
+</div>
+</body>
+</html>

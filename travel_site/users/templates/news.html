@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+News
+{% endblock %}
+
+{% block main %}
+    {% for i in news %}
+        <div class="newsmain">
+            <div class="newstext"> {{ i.text }}</div>
+            <div class="newsdate"> {{ i.date }}</div>
+        </div>
+    {% endfor %}
+{% endblock %}

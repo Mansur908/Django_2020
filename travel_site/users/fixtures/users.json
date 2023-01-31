@@ -1,0 +1,11 @@
+[
+  {
+    "model": "users.person",
+    "pk": 1,
+    "fields": {
+      "name": "Mansur",
+      "email": "test@gmail.com",
+      "password": "qwerty007"
+    }
+  }
+]

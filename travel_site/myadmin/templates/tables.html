@@ -1,0 +1,208 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tables</title>
+    <link rel="stylesheet" href="{% static 'css/stylesheet.css'%}" type="text/css">
+
+</head>
+<body bgcolor="darkkhaki" >
+<a href="http://localhost:8000/myadmin/add_tickets/">
+    <button type="button" class="mainPage1">add_ticket</button>
+</a>
+<form action="/myadmin/tables/" method="post">
+    {% csrf_token %}
+    <select id="t" name="table">
+        <option>Users</option>
+        <option>Air tickets</option>
+        <option>News</option>
+        <option>Messages</option>
+        <option>Attractions</option>
+        <option>Hotels</option>
+        <option>Restaurants</option>
+        <option>Cars</option>
+    </select>
+    <input type="submit" value="Enter">
+</form>
+<div style="margin: 50px 0px">
+    {% if tab == "Users" %}
+    <form action="/myadmin/tables/" method="post">
+            {% csrf_token %}
+        <button type="submit" name="table" value="sortUsers">sort by id</button>
+    </form>
+    <table  border="1">
+        <tr>
+            <th >id </th >
+            <th >name</th>
+            <th >email</th>
+            <th >picture</th>
+            <th >password</th>
+        </tr>
+        {% for i in result %}
+            <tr>
+                <th >{{i.id}}</th>
+                <th >{{i.name}}</th>
+                <th >{{i.email}}</th>
+                <th >{{i.picture}}</th>
+                <th >{{i.password}}</th>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+<!--    -->
+    {% if tab == "Air tickets" %}
+    <form action="/myadmin/tables/" method="post">
+            {% csrf_token %}
+        <button type="submit" name="table" value="sortTickets">sort by price</button>
+    </form>
+    <table  border="1">
+        <tr style="width: 800px">
+            <th >id </th >
+            <th >departure</th>
+            <th >arrival</th>
+            <th >date</th>
+            <th >price</th>
+            <th >air company</th>
+        </tr>
+        {% for i in result %}
+            <tr>
+                <th >{{i.id}}</th>
+                <th >{{i.departure_place}}</th>
+                <th >{{i.arrival_place}}</th>
+                <th >{{i.date}}</th>
+                <th >{{i.price}}</th>
+                <th >{{i.air_company}}</th>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    <!--    -->
+    {% if tab == "Attractions" %}
+    <table  border="1">
+        <tr style="width: 800px">
+            <th >id </th >
+            <th >name</th>
+            <th >address</th>
+            <th >price</th>
+            <th >text</th>
+        </tr>
+        {% for i in result %}
+            <tr>
+                <th >{{i.id}}</th>
+                <th >{{i.name}}</th>
+                <th >{{i.address}}</th>
+                <th >{{i.price}}</th>
+                <th >{{i.text}}</th>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+        <!--    -->
+    {% if tab == "News" %}
+    <table  border="1">
+        <tr style="width: 800px">
+            <th >id </th >
+            <th >date</th>
+            <th >text</th>
+        </tr>
+        {% for i in result %}
+            <tr>
+                <th >{{i.id}}</th>
+                <th >{{i.date}}</th>
+                <th >{{i.text}}</th>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+          <!--    -->
+    {% if tab == "Messages" %}
+    <table  border="1">
+        <tr style="width: 800px">
+            <th >id </th >
+            <th >user_id</th>
+            <th >date</th>
+            <th >text</th>
+        </tr>
+        {% for i in result %}
+            <tr>
+                <th >{{i.id}}</th>
+                <th >{{i.user_id_id}}</th>
+                <th >{{i.date}}</th>
+                <th >{{i.text}}</th>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+            <!--    -->
+    {% if tab == "Hotels" %}
+    <table  border="1">
+        <tr style="width: 800px">
+            <th >id </th >
+            <th >name</th>
+            <th >address</th>
+            <th >prece</th>
+            <th >text</th>
+        </tr>
+        {% for i in result %}
+            <tr>
+                <th >{{i.id}}</th>
+                <th >{{i.name}}</th>
+                <th >{{i.address}}</th>
+                <th >{{i.price}}</th>
+                <th >{{i.text}}</th>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+                <!--    -->
+    {% if tab == "Restaurants" %}
+    <table  border="1">
+        <tr style="width: 800px">
+            <th >id </th >
+            <th >name</th>
+            <th >address</th>
+            <th >text</th>
+        </tr>
+        {% for i in result %}
+            <tr>
+                <th >{{i.id}}</th>
+                <th >{{i.name}}</th>
+                <th >{{i.address}}</th>
+                <th >{{i.text}}</th>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+                 <!--    -->
+    {% if tab == "Cars" %}
+    <form action="/myadmin/tables/" method="post">
+            {% csrf_token %}
+        <input type="text" name="name" placeholder="Марка">
+        <input type="text" name="price" placeholder="Цена">
+        <button type="submit" >find</button>
+    </form>
+    <table  border="1">
+        <tr style="width: 800px">
+            <th >id </th >
+            <th >name</th>
+            <th >model</th>
+            <th >address</th>
+            <th >price</th>
+            <th >text</th>
+        </tr>
+        {% for i in result %}
+            <tr>
+                <th >{{i.id}}</th>
+                <th >{{i.name}}</th>
+                <th >{{i.model}}</th>
+                <th >{{i.address}}</th>
+                <th >{{i.price}}</th>
+                <th >{{i.text}}</th>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</div>
+</body>
+</html>
